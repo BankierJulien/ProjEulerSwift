@@ -8,21 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PEQuestionTwoViewController: UIViewController {
     var projEuleurSolution2 = 0
-
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.createFibSequenceFrom(a: 0, b: 1, celing: 4000000))
         
    
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func createFibSequenceFrom(a: Int, b: Int, celing: Int) -> Int{
