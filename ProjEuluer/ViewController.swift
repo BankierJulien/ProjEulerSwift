@@ -9,22 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var arrayOfEvenFibNum = [Int]()
-    var solution = Int()
+    var projEuleurSolution2 = 0
 
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.createFibSequenceFrom(a: 0, b: 1, celing: 4000000))
         
-        self.createFibSequenceFrom(a: 0, b: 1)
-        print(self.arrayOfEvenFibNum)
-        for num in self.arrayOfEvenFibNum{
-            print(solution)
-            solution = solution + num
-        }
-        print(solution)
-        // Do any additional setup after loading the view, typically from a nib.
+   
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,17 +25,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    func createFibSequenceFrom(a: Int,b: Int) -> Void{
-        if a < 400000{
-          //  print(fibNum)
-            let fibNum = a + b
-            if fibNum % 2 == 0 {
-                arrayOfEvenFibNum.append(fibNum)
-            }
-            self.createFibSequenceFrom(a: b, b: fibNum)
+    func createFibSequenceFrom(a: Int, b: Int, celing: Int) -> Int{
+        let fibNum = a + b
+        let newA = b
+        let newB = fibNum
+        if fibNum % 2 == 0 {
+            projEuleurSolution2 = projEuleurSolution2 + fibNum
         }
+        if newA <= celing || newB <= celing {
+            _ = createFibSequenceFrom(a: newA, b: newB, celing: celing)
+        }
+        return projEuleurSolution2
     }
-
+ 
 }
 
