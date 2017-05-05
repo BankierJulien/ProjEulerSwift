@@ -9,10 +9,13 @@
 import UIKit
 
 class PEViewController: UIViewController {
+    let questionNameLabel = UILabel()
+    let responseNameLabel = UILabel()
     let question = UILabel()
     let response = UILabel()
-    let xOrigin :CGFloat = 100
-    let yOrigin :CGFloat = 200
+    let margin : CGFloat = 20
+    let xOrigin :CGFloat = 10
+    let yOrigin :CGFloat = 50
     let stringAttributes = NSMutableAttributedString()
     let paragraphStyle = NSMutableParagraphStyle()
     //var attributedStringAttributes = []
@@ -20,14 +23,24 @@ class PEViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        question.frame = CGRect(x:xOrigin, y: yOrigin, width: self.view.bounds.width , height: 200)
-        response.frame =  CGRect(x:xOrigin, y: yOrigin * 2, width: self.view.bounds.width , height: 400)
-        question.backgroundColor = UIColor.green
-        response.backgroundColor = UIColor.red
+        
+        questionNameLabel.frame = CGRect(x:xOrigin, y:yOrigin, width:self.view.bounds.width, height: 200)
+        questionNameLabel.text = "Question:"
+        questionNameLabel.sizeToFit()
+        
+        question.frame = CGRect(x:xOrigin, y: questionNameLabel.frame.origin.y + questionNameLabel.frame.size.height + margin, width: self.view.bounds.width , height: 300)
+        
+        responseNameLabel.frame = CGRect(x:xOrigin, y:question.frame.size.height + (margin * 2), width:self.view.bounds.width, height: 200)
+        responseNameLabel.text = "Response:"
+        responseNameLabel.sizeToFit()
+        
+        response.frame =  CGRect(x:xOrigin, y: responseNameLabel.frame.origin.y + margin, width: self.view.bounds.width , height: 400)
+
+        
+        self.view.addSubview(questionNameLabel)
+        self.view.addSubview(responseNameLabel)
         self.view.addSubview(question)
         self.view.addSubview(response)
-        
-
      
     }
     
@@ -37,19 +50,13 @@ class PEViewController: UIViewController {
             return
         }
         
-        let nsLabelString = NSString(string: labelString)
-        let range = NSMakeRange(0, nsLabelString.length)
-        print(labelString)
-        
-        paragraphStyle.lineBreakMode = .byTruncatingTail
-        
-        stringAttributes.addAttributes([NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 15)], range: NSMakeRange(0, 1))
-        
-     //   stringAttributes.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: range)
+        label.numberOfLines = 100
+        paragraphStyle.lineBreakMode = .byWordWrapping
 
-        let attributedText = NSAttributedString(attributedString: stringAttributes)
-        let newRect = attributedText.boundingRect(with: CGSize(width: self.view.frame.size.width, height:CGFloat.greatestFiniteMagnitude) , options: .usesLineFragmentOrigin, context: nil)
+        let attributedText = NSAttributedString(string: labelString, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSParagraphStyleAttributeName:paragraphStyle])
+        let newRect = attributedText.boundingRect(with: CGSize(width: self.view.frame.size.width - margin, height: CGFloat.greatestFiniteMagnitude) , options: .usesLineFragmentOrigin, context: nil)
         label.frame.size = newRect.size
+        label.sizeToFit()
         
     }
 
