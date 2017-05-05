@@ -18,7 +18,6 @@ class PEViewController: UIViewController {
     let yOrigin :CGFloat = 50
     let stringAttributes = NSMutableAttributedString()
     let paragraphStyle = NSMutableParagraphStyle()
-    //var attributedStringAttributes = []
 
 
     override func viewDidLoad() {
@@ -35,7 +34,7 @@ class PEViewController: UIViewController {
         responseNameLabel.sizeToFit()
         
         response.frame =  CGRect(x:xOrigin, y: responseNameLabel.frame.origin.y + margin, width: self.view.bounds.width , height: 400)
-
+        response.backgroundColor = UIColor.red
         
         self.view.addSubview(questionNameLabel)
         self.view.addSubview(responseNameLabel)
@@ -50,8 +49,8 @@ class PEViewController: UIViewController {
             return
         }
         
-        label.numberOfLines = 100
-        paragraphStyle.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        paragraphStyle.lineBreakMode = .byTruncatingTail
 
         let attributedText = NSAttributedString(string: labelString, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSParagraphStyleAttributeName:paragraphStyle])
         let newRect = attributedText.boundingRect(with: CGSize(width: self.view.frame.size.width - margin, height: CGFloat.greatestFiniteMagnitude) , options: .usesLineFragmentOrigin, context: nil)
