@@ -16,16 +16,16 @@ class Q3ViewController: PEViewController {
         super.viewDidLoad()
         question.text = "The prime factors of 13195 are 5, 7, 13 and 29./n/n/n What is the largest prime factor of the number 600851475143 ?"
         
-        self.generateListOfPrimes(ceiling: 10)
-        
+        //  self.generateListOfPrimes(ceiling: 10)
+        self.seiveEratosthenes(ceiling: 10)
         
         
         
         
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
     //Sieve_of_Eratosthenes
     func isItAFactor(numToFactor: Int, numToCheck: Int) -> Bool {
         if numToFactor % numToCheck == 0 {
@@ -36,35 +36,27 @@ class Q3ViewController: PEViewController {
         }
     }
     
-    func generateListOfPrimes(ceiling:Int) -> Array<Bool>{
+    func seiveEratosthenes(ceiling:Int) -> Array<Bool>{
         var boolArray = [Bool](repeating: true, count: ceiling)
-     //   var k = 2
-      
+        let squareRootOfCeiling = Int(sqrt(Double(ceiling)))
         
-        /*// Eratosthenes sieve
-         for var i=2; i<data.count; i++ {
-         if ( data[i] ) {
-         primes = primes + 1
-         for var j=i+i; j<data.count; j+=i {
-         data[j] = false;
-         }
-         }
-         }*/
         for i in 2..<boolArray.count where boolArray[i] {
-           self.test(j: i+i, i: i, array: boolArray, ceiling: ceiling)
-          /* for var j = i+i in j..<ceiling{
+            for j in 2..<ceiling{
                 
-            }*/
-           // while j < ceiling
-         print("h")
+                if i*j<ceiling {
+                    
+                    boolArray[i*j] = false
+                }
+                
+            }
         }
         
         print(boolArray)
         return boolArray
     }
     
-   
     
-  
+    
+    
     
 }
