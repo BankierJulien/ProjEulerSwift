@@ -9,10 +9,12 @@
 import UIKit
 
 class PEHomeTableViewController : UITableViewController {
-  //  var PEQuestionArray = []()
+   var PEQuestionArray = [PEViewController]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let questionTwo = Q2ViewController()
+        self.PEQuestionArray.append(questionTwo)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,23 +32,25 @@ class PEHomeTableViewController : UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.PEQuestionArray.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
+   
+        
+       // cell.textLabel?.text = self.PEQuestionArray.it
+        
         return cell
+
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

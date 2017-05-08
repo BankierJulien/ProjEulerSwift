@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A1A0EA21EC0EC830010D47E /* Q3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1A0EA11EC0EC830010D47E /* Q3ViewController.swift */; };
 		9AB1EDD61EBD162D008602B3 /* PEHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1EDD51EBD162D008602B3 /* PEHomeTableViewController.swift */; };
 		9AB1EDD81EBD16E3008602B3 /* PEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1EDD71EBD16E3008602B3 /* PEViewController.swift */; };
 		9AB1EDDA1EBD16F9008602B3 /* Q2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1EDD91EBD16F9008602B3 /* Q2ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A1A0EA11EC0EC830010D47E /* Q3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Q3ViewController.swift; sourceTree = "<group>"; };
 		9AB1EDD51EBD162D008602B3 /* PEHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PEHomeTableViewController.swift; sourceTree = "<group>"; };
 		9AB1EDD71EBD16E3008602B3 /* PEViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PEViewController.swift; sourceTree = "<group>"; };
 		9AB1EDD91EBD16F9008602B3 /* Q2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Q2ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				9AFD94C41EBBC70700ED5F10 /* PEQuestionTwoViewController.swift */,
 				9AB1EDD71EBD16E3008602B3 /* PEViewController.swift */,
 				9AB1EDD91EBD16F9008602B3 /* Q2ViewController.swift */,
+				9A1A0EA11EC0EC830010D47E /* Q3ViewController.swift */,
 				9AB1EDD51EBD162D008602B3 /* PEHomeTableViewController.swift */,
 				9AFD94C61EBBC70700ED5F10 /* Main.storyboard */,
 				9AFD94C91EBBC70700ED5F10 /* Assets.xcassets */,
@@ -272,6 +275,7 @@
 				9AB1EDDA1EBD16F9008602B3 /* Q2ViewController.swift in Sources */,
 				9AB1EDD81EBD16E3008602B3 /* PEViewController.swift in Sources */,
 				9AB1EDD61EBD162D008602B3 /* PEHomeTableViewController.swift in Sources */,
+				9A1A0EA21EC0EC830010D47E /* Q3ViewController.swift in Sources */,
 				9AFD94C31EBBC70700ED5F10 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
