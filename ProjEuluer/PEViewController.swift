@@ -13,8 +13,8 @@ class PEViewController: UIViewController {
     let responseNameLabel = UILabel()
     let question = UILabel()
     let response = UILabel()
-    let margin : CGFloat = 20
-    let xOrigin :CGFloat = 10
+    let heightMargin : CGFloat = 20
+    let widthMargin :CGFloat = 10
     let yOrigin :CGFloat = 50
     let stringAttributes = NSMutableAttributedString()
     let paragraphStyle = NSMutableParagraphStyle()
@@ -23,17 +23,17 @@ class PEViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionNameLabel.frame = CGRect(x:xOrigin, y:yOrigin, width:self.view.bounds.width, height: 200)
+        questionNameLabel.frame = CGRect(x:widthMargin, y:yOrigin, width:self.view.bounds.width, height: self.view.bounds.height)
         questionNameLabel.text = "Question:"
         questionNameLabel.sizeToFit()
         
-        question.frame = CGRect(x:xOrigin, y: questionNameLabel.frame.origin.y + questionNameLabel.frame.size.height + margin, width: self.view.bounds.width , height: 300)
+        question.frame = CGRect(x:widthMargin, y: questionNameLabel.frame.size.height * 2 +  heightMargin * 2, width: self.view.bounds.width , height: self.view.bounds.height)
         
-        responseNameLabel.frame = CGRect(x:xOrigin, y:question.frame.size.height + (margin * 2), width:self.view.bounds.width, height: 200)
+        responseNameLabel.frame = CGRect(x:widthMargin, y:self.view.bounds.height/2 + heightMargin, width:self.view.bounds.width, height: self.view.bounds.height)
         responseNameLabel.text = "Response:"
         responseNameLabel.sizeToFit()
         
-        response.frame =  CGRect(x:xOrigin, y: responseNameLabel.frame.origin.y + margin, width: self.view.bounds.width , height: 400)
+        response.frame =  CGRect(x:widthMargin, y: responseNameLabel.frame.origin.y + responseNameLabel.frame.size.height + heightMargin, width: self.view.bounds.width , height: self.view.bounds.height)
         response.backgroundColor = UIColor.red
         
         self.view.addSubview(questionNameLabel)
@@ -53,7 +53,7 @@ class PEViewController: UIViewController {
         paragraphStyle.lineBreakMode = .byTruncatingTail
 
         let attributedText = NSAttributedString(string: labelString, attributes: [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: UIFont.systemFont(ofSize: 15), NSParagraphStyleAttributeName:paragraphStyle])
-        let newRect = attributedText.boundingRect(with: CGSize(width: self.view.frame.size.width - margin, height: CGFloat.greatestFiniteMagnitude) , options: .usesLineFragmentOrigin, context: nil)
+        let newRect = attributedText.boundingRect(with: CGSize(width: self.view.frame.size.width - widthMargin, height: CGFloat.greatestFiniteMagnitude) , options: .usesLineFragmentOrigin, context: nil)
         label.frame.size = newRect.size
         label.sizeToFit()
         
