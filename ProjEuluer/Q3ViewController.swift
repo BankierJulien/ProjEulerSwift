@@ -17,8 +17,8 @@ class Q3ViewController: PEViewController {
         question.text = "The prime factors of 13195 are 5, 7, 13 and 29./n/n/n What is the largest prime factor of the number 600851475143 ?"
         
         //  self.generateListOfPrimes(ceiling: 10)
-        self.facotrCheckForBoolArray(arrayOfBool:self.seiveEratosthenes(ceiling: 9) )
-        
+        let largestPrime = self.getLargestPrimeNumber(arrayOfBool:self.seiveEratosthenes(ceiling: 9))
+        print(largestPrime)
         
         
         
@@ -59,14 +59,15 @@ class Q3ViewController: PEViewController {
         return boolArray
     }
     
-    func facotrCheckForBoolArray(arrayOfBool:Array<Bool>) -> Int{
-        var counterOfFalse = 0
-          for i in 0...arrayOfBool.count-1{
-         // print(arrayOfBool.a)
-            
-            
+    func getLargestPrimeNumber(arrayOfBool:Array<Bool>) -> Int{
+        var arrayOfPrimes = Array(1...arrayOfBool.count)
+        for i in (0...arrayOfBool.count-1).reversed(){
+            if arrayOfBool[i] == false{
+               arrayOfPrimes.remove(at: i)
+            }
         }
-        return 0
+
+        return arrayOfPrimes.last ?? 0
     }
     
 }
