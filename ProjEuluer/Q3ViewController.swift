@@ -14,16 +14,15 @@ class Q3ViewController: PEViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        question.text = "The prime factors of 13195 are 5, 7, 13 and 29./n/n/n What is the largest prime factor of the number 600851475143 ?"
+        question.text = "The prime factors of 13195 are 5, 7, 13 and 29./n/n/n What is the largest prime factor of the number 600851475143 ? // not working for large numbers"
         
         //  self.generateListOfPrimes(ceiling: 10)
-        let sieveresults = self.seiveEratosthenes(ceiling: 600851475143)
-        let largestPrime = self.getLargestPrimeNumber(array: sieveresults, ceiling: 600851475143)
-        print(largestPrime)
+        let sieveresults = self.seiveEratosthenes(ceiling: 100)
+        let largestPrime = self.getLargestPrimeNumber(array: sieveresults, ceiling: 100)
         
-        
-        
-        // Do any additional setup after loading the view.
+        response.text = String(largestPrime)
+        self.adjustTextSizeForLabel(label: question)
+        self.adjustTextSizeForLabel(label: response)
     }
     
     

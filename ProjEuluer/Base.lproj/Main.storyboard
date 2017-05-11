@@ -49,7 +49,7 @@
         <!--View Controller-->
         <scene sceneID="Ldr-tw-cdN">
             <objects>
-                <viewController id="FWJ-gZ-R3E" customClass="Q3ViewController" customModule="ProjEuluer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FWJ-gZ-R3E" customClass="Q1ViewController" customModule="ProjEuluer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kwh-3K-h3t"/>
                         <viewControllerLayoutGuide type="bottom" id="rQR-Oq-PNS"/>
