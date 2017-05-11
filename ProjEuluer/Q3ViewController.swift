@@ -17,7 +17,8 @@ class Q3ViewController: PEViewController {
         question.text = "The prime factors of 13195 are 5, 7, 13 and 29./n/n/n What is the largest prime factor of the number 600851475143 ?"
         
         //  self.generateListOfPrimes(ceiling: 10)
-        let largestPrime = self.getLargestPrimeNumber(arrayOfBool:self.seiveEratosthenes(ceiling: 9))
+        let sieveresults = self.seiveEratosthenes(ceiling: 600851475143)
+        let largestPrime = self.getLargestPrimeNumber(array: sieveresults, ceiling: 600851475143)
         print(largestPrime)
         
         
@@ -26,28 +27,20 @@ class Q3ViewController: PEViewController {
     }
     
     
+
     //Sieve_of_Eratosthenes
-    func factorCheck(numToFactor: Int, numToCheck: Int) -> Bool {
-        if numToFactor % numToCheck == 0 {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
     func seiveEratosthenes(ceiling:Int) -> Array<Bool>{
         // + 1 so array is not "zero based" for prime list, 0 included in list of number
         var boolArray = [Bool](repeating: true, count: ceiling+1)
         let squareRootOfCeiling = Int(sqrt(Double(ceiling)))
-
+        
         // 1 and 2 always prime
         boolArray[1] = true
         boolArray[2] = true
-
+        
         for i in 2...squareRootOfCeiling{
             if boolArray[i]{
-                for j in 0...squareRootOfCeiling{
+                for j in 0...ceiling{
                     if (i*i + j*i)<=ceiling{
                         boolArray[i*i + j*i] = false
                     }
@@ -59,15 +52,31 @@ class Q3ViewController: PEViewController {
         return boolArray
     }
     
-    func getLargestPrimeNumber(arrayOfBool:Array<Bool>) -> Int{
-        var arrayOfPrimes = Array(1...arrayOfBool.count)
+    func factorCheck(numberBeingTested: Int, ceiling: Int) -> Bool {
+        if ceiling % numberBeingTested == 0 {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    func getLargestPrimeNumber(array:Array<Bool>, ceiling: Int) -> Int{
+        var arrayOfBool = array
+        var arrayOfNums = Array(1...arrayOfBool.count)
+        var arrayOfPrimes = [Int]()
+
         for i in (0...arrayOfBool.count-1).reversed(){
-            if arrayOfBool[i] == false{
-               arrayOfPrimes.remove(at: i)
+
+            if arrayOfBool[i] == true{
+                if self.factorCheck(numberBeingTested: arrayOfNums[i], ceiling: ceiling){
+                    arrayOfPrimes.append(arrayOfNums[i])
+                }
             }
         }
-
-        return arrayOfPrimes.last ?? 0
+        
+        //print(arrayOfPrimes)
+        return arrayOfPrimes.first ?? 0
     }
     
 }
